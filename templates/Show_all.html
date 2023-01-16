@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        table, th, td {
+            border: 1px solid;
+        }
+        table {
+        width: 50%;
+        }
+        td{
+            text-align: center;
+        }
+    </style>
+    <title>Show All Details</title>
+</head>
+<body>
+    <h2>All Users</h2>
+    <!-- {% for i in users2 %}
+        <p>{% print(i.Username,i.Password) %}</p>
+    {% endfor %} -->
+    <a href="/createuser"><button >Add New User</button></a>
+    <table>
+        <tr>
+            <th>Usernames</th>
+            <th>Passwords</th>
+        </tr>
+        <tbody>
+            {% for user in users2 %}
+                <tr>
+                    <td>{{user.Username}}</td>
+                    <td>{{user.Password}}</td>
+                    <td><a href="/edit/{{user.Username}}"><button>Edit</button></a></td>
+                    <td><a href="/delete/{{user.Username}}"><button>Delete</button></a></td>
+                </tr>
+            {%endfor%}
+        </tbody>
+    </table>
+</body>
+</html>
